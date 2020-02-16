@@ -10,4 +10,28 @@
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city
 
+var $temp = $("#temp");
+var $humidity = $("#humidity");
+var $wind = $("#wind");
+var $search = $("#search");
+var $searchBtn = $("#searchBtn");
+
+// .on("click") function associated with the Search Button
+// Create an AJAX call
+$searchBtn.on("click", function(event){
+    event.preventDefault();
+
+    var search = $search.val();
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=" + search + "&appid=ec769fc248d61a50ac4a8124e2ff8391";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        $temp.text(response.main.temp);
+        $humidity.text(response.main.humidity);
+        $wind.text(response.wind.speed);
+        console.log(response);
+    });
+})
 
