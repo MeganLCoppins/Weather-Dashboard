@@ -1,50 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Weather Dashboard</h1>
+      <h1>Weather Dashboard</h1>
     </header>
     <div class="container">
-        <div class="row">
-            <div class="col-4">
-                <h5>Search for a City</h5>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2" id="search">
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary" type="button" id="searchBtn">Search</button>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-8">
-                <div>
-                    <h2 id="cityDate"></h2>
-                    <h5>Temperature: <p id="temp"></p></h5>
-                    <h5>Humidity: <p id="humidity"></p></h5>
-                    <h5>Wind Speed: <p id="wind"></p></h5>
-                </div>
-                <div>
-                    <h3>5-Day Forecast:</h3>
+    <div class="row">
+        <div class="col-4" id="searchCity">
+            <h5>Search for a City</h5>
+            <div class="input-group mb-3" id="searchBox">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2" id="search"/>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="searchBtn">Search</button>
                 </div>
             </div>
         </div>
+        <div class="col-8">
+            <div id="currentWeather" class="hide">
+                <h2 id="city"></h2>
+                <p id="temp"></p>
+                <p id="humidity"></p>
+                <p id="wind"></p>
+                <p id="uv"></p>
+            </div>
+            <div class="hide">
+                <h3>5-Day Forecast:</h3>
+                <div class="row hide" id="forecastDiv">
+                    <!-- <div class="col"> -->
+                      <div class="card noBorder">
+                        <div class="card-body forecast">
+                            <h5 class="card-title" id="Day1"></h5>
+                            <p class="card-text" id="forecastSymbol1"></p>
+                            <p class="card-text" id="forecastTemp1"></p>
+                            <p class="card-text" id="forecastHumidity1"></p>
+                        </div>
+                      </div>
+                    <!-- </div>  -->
+                    <!-- <div class="col"> -->
+                      <div class="card noBorder">
+                        <div class="card-body forecast">
+                            <h5 class="card-title" id="Day2"></h5>
+                            <p class="card-text" id="forecastSymbol2"></p>
+                            <p class="card-text" id="forecastTemp2"></p>
+                            <p class="card-text" id="forecastHumidity2"></p>
+                        </div>
+                      </div>
+                    <!-- </div> -->
+                    <!-- <div class="col"> -->
+                        <div class="card noBorder">
+                          <div class="card-body forecast">
+                              <h5 class="card-title" id="Day3"></h5>
+                              <p class="card-text" id="forecastSymbol3"></p>
+                              <p class="card-text" id="forecastTemp3"></p>
+                              <p class="card-text" id="forecastHumidity3"></p>
+                          </div>
+                        </div>
+                      <!-- </div> -->
+                      <!-- <div class="col"> -->
+                        <div class="card noBorder">
+                            <div class="card-body forecast">
+                                <h5 class="card-title" id="Day4"></h5>
+                                <p class="card-text" id="forecastSymbol4"></p>
+                                <p class="card-text" id="forecastTemp4"></p>
+                                <p class="card-text" id="forecastHumidity4"></p>
+                            </div>
+                        </div>
+                      <!-- </div> -->
+                      <!-- <div class="col">  -->
+                        <div class="card noBorder">
+                            <div class="card-body forecast">
+                                <h5 class="card-title" id="Day5"></h5>
+                                <p class="card-text" id="forecastSymbol5"></p>
+                                <p class="card-text" id="forecastTemp5"></p>
+                                <p class="card-text" id="forecastHumidity5"></p>
+                            </div>
+                        </div>
+                      <!-- </div> -->
+                  </div>
+        <!-- col-8 div below -->
+        </div>
+    <!-- ROW DIV BELOW -->
     </div>
-
-    
-
-
-
-
-
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
-</body>
+  </body>
 </html>

@@ -5,3 +5,28 @@ header {
     text-align: center;
     padding: 10px;
 }
+
+#searchBox {
+    width: 300px;
+}
+#currentWeather {
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 10px;
+}
+#forecastDiv {
+    padding: 12px;
+}
+
+.noBorder {
+    border: transparent;
+    margin-right: 8px;
+}
+/* .hide {
+    display: none;
+} */
+.forecast {
+    background-color: blue;
+    color: white;
+    margin-right: 6px;
+}
