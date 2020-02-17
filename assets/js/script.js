@@ -41,6 +41,16 @@ var $currentWeather = $("#currentWeather");
                 method: "GET"
             }).then(function(returned){
                 $uv.text("UV Index: " + returned.value);
+
+                if(returned.value <= 2){
+                    $uv.addClass("favorable");
+                }
+                if(returned.value > 2 && returned.value <= 7){
+                    $uv.addClass("moderate");
+                }
+                if(returned.value > 7){
+                    $uv.addClass("severe");
+                }
             })
 
 // third AJAX call to get forecast information
@@ -50,6 +60,7 @@ var $currentWeather = $("#currentWeather");
             url: forecastQueryURL,
             method: "GET"
         }).then(function(result){
+            console.log(result);
 
     // temperature forecast - 5 days
             $("#forecastTemp1").text("Temp: " + result.list[0].main.temp);

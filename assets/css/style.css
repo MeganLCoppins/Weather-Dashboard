@@ -34,3 +34,15 @@ header {
 #searchCity {
     padding-top: 10px;
 }
+
+.favorable {
+    background-color: rgb(174, 231, 88);
+}
+
+.moderate {
+    background-color: rgb(250, 250, 111);
+}
+
+.severe {
+    background-color: rgb(240, 79, 79);
+}
