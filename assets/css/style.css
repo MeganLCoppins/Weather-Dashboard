@@ -13,6 +13,7 @@ header {
     border: 1px solid black;
     margin-top: 10px;
     padding: 10px;
+    /* display: none; */
 }
 #forecastDiv {
     padding: 12px;
@@ -22,11 +23,14 @@ header {
     border: transparent;
     margin-right: 8px;
 }
-/* .hide {
+.hide {
     display: none;
-} */
+}
 .forecast {
     background-color: blue;
     color: white;
     margin-right: 6px;
+}
+#searchCity {
+    padding-top: 10px;
 }
