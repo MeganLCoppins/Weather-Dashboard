@@ -11,7 +11,7 @@ $(document).ready(function() {
     var searchArray = [];
     getSearch();
 
-// on click event to grab search input $ display hidden div
+// on click event to grab search input & display hidden div
     $searchBtn.on("click", function(event){
         event.preventDefault();
 
@@ -29,7 +29,8 @@ $(document).ready(function() {
             url: queryURL,
             method: "GET"
         }).then(function(response){
-            $city.text(response.name);
+            var dateString = moment.unix(response.dt).format("MM/DD/YYYY");
+            $city.text(response.name + " (" + dateString + ")");
             $temp.text("Temperature: " + response.main.temp + " °F");
             $humidity.text("Humidity: " + response.main.humidity + " %");
             $wind.text("Wind Speed: " + response.wind.speed + " MPH");
@@ -63,10 +64,30 @@ $(document).ready(function() {
                 url: forecastQueryUrl,
                 method: "GET"
             }).then(function(result){
-                for(var i = 0; i < 6; i++){
-                    $("#forecastTemp" + i).text("Temp: " + result.list[i].main.temp);
-                    $("#forecastHumidity" + i).text("Humidity: " + result.list[i].main.humidity);
-                }
+            // 5 dates of forecast
+                $("#Day1").text(moment.unix(result.list[6].dt).format("MM/DD/YYYY"));
+                $("#Day2").text(moment.unix(result.list[14].dt).format("MM/DD/YYYY"));
+                $("#Day3").text(moment.unix(result.list[22].dt).format("MM/DD/YYYY"));
+                $("#Day4").text(moment.unix(result.list[30].dt).format("MM/DD/YYYY"));
+                $("#Day5").text(moment.unix(result.list[38].dt).format("MM/DD/YYYY"));
+            // 5 day weather forecast symbols
+                $("#forecastSymbol1").attr("src", "http://openweathermap.org/img/w/" + result.list[6].weather[0].icon + ".png");
+                $("#forecastSymbol2").attr("src", "http://openweathermap.org/img/w/" + result.list[14].weather[0].icon + ".png");
+                $("#forecastSymbol3").attr("src", "http://openweathermap.org/img/w/" + result.list[22].weather[0].icon + ".png");
+                $("#forecastSymbol4").attr("src", "http://openweathermap.org/img/w/" + result.list[30].weather[0].icon + ".png");
+                $("#forecastSymbol5").attr("src", "http://openweathermap.org/img/w/" + result.list[38].weather[0].icon + ".png");
+            // 5 day weather forecast temps
+                $("#forecastTemp1").text("Temp: " + result.list[6].main.temp + "°F");
+                $("#forecastTemp2").text("Temp: " + result.list[14].main.temp + "°F");
+                $("#forecastTemp3").text("Temp: " + result.list[22].main.temp + "°F");
+                $("#forecastTemp4").text("Temp: " + result.list[30].main.temp + "°F");
+                $("#forecastTemp5").text("Temp: " + result.list[38].main.temp + "°F");
+            // 5 day weather forecast humidity
+                $("#forecastHumidity1").text("Humidity: " + result.list[6].main.humidity + "%");
+                $("#forecastHumidity2").text("Humidity: " + result.list[14].main.humidity + "%");
+                $("#forecastHumidity3").text("Humidity: " + result.list[22].main.humidity + "%");
+                $("#forecastHumidity4").text("Humidity: " + result.list[30].main.humidity + "%");
+                $("#forecastHumidity5").text("Humidity: " + result.list[38].main.humidity + "%");
             });
         });
     storeSearch();
@@ -110,6 +131,7 @@ $(document).ready(function() {
 // on click event for search history buttons
     $(".city").on("click", function(event){
         event.preventDefault();
+        $(".hide").removeClass("hide");
         var search = $(this).text();
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=" + search + "&appid=" + apiKey;
     
@@ -118,7 +140,8 @@ $(document).ready(function() {
             url: queryURL,
             method: "GET"
         }).then(function(response){
-            $city.text(response.name);
+            var dateString = moment.unix(response.dt).format("MM/DD/YYYY");
+            $city.text(response.name + " (" + dateString + ")");
             $temp.text("Temperature: " + response.main.temp + " °F");
             $humidity.text("Humidity: " + response.main.humidity + " %");
             $wind.text("Wind Speed: " + response.wind.speed + " MPH");
@@ -153,10 +176,30 @@ $(document).ready(function() {
             url: forecastQueryUrl,
             method: "GET"
         }).then(function(result){
-            for(var i = 0; i < 6; i++){
-                $("#forecastTemp" + i).text("Temp: " + result.list[i].main.temp);
-                $("#forecastHumidity" + i).text("Humidity: " + result.list[i].main.humidity);
-            };
+        // 5 dates of forecast
+            $("#Day1").text(moment.unix(result.list[6].dt).format("MM/DD/YYYY"));
+            $("#Day2").text(moment.unix(result.list[14].dt).format("MM/DD/YYYY"));
+            $("#Day3").text(moment.unix(result.list[22].dt).format("MM/DD/YYYY"));
+            $("#Day4").text(moment.unix(result.list[30].dt).format("MM/DD/YYYY"));
+            $("#Day5").text(moment.unix(result.list[38].dt).format("MM/DD/YYYY"));
+        // 5 day weather forecast symbols
+            $("#forecastSymbol1").attr("src", "http://openweathermap.org/img/w/" + result.list[6].weather[0].icon + ".png");
+            $("#forecastSymbol2").attr("src", "http://openweathermap.org/img/w/" + result.list[14].weather[0].icon + ".png");
+            $("#forecastSymbol3").attr("src", "http://openweathermap.org/img/w/" + result.list[22].weather[0].icon + ".png");
+            $("#forecastSymbol4").attr("src", "http://openweathermap.org/img/w/" + result.list[30].weather[0].icon + ".png");
+            $("#forecastSymbol5").attr("src", "http://openweathermap.org/img/w/" + result.list[38].weather[0].icon + ".png");
+        // 5 day weather forecast temps
+            $("#forecastTemp1").text("Temp: " + result.list[6].main.temp + "°F");
+            $("#forecastTemp2").text("Temp: " + result.list[14].main.temp + "°F");
+            $("#forecastTemp3").text("Temp: " + result.list[22].main.temp + "°F");
+            $("#forecastTemp4").text("Temp: " + result.list[30].main.temp + "°F");
+            $("#forecastTemp5").text("Temp: " + result.list[38].main.temp + "°F");
+        // 5 day weather forecast humidity
+            $("#forecastHumidity1").text("Humidity: " + result.list[6].main.humidity + "%");
+            $("#forecastHumidity2").text("Humidity: " + result.list[14].main.humidity + "%");
+            $("#forecastHumidity3").text("Humidity: " + result.list[22].main.humidity + "%");
+            $("#forecastHumidity4").text("Humidity: " + result.list[30].main.humidity + "%");
+            $("#forecastHumidity5").text("Humidity: " + result.list[38].main.humidity + "%");
         });
     });
     };

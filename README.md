@@ -1,1 +1,4 @@
 # Weather-Dashboard
+Using the OpenWeather API I created a weather dashboard application. When the user inputs a city to search the current and future weather conditions for that city are displayed and the city is added to the search history located underneath the search bar. When current weather conditions for that city are displayed, the user is presented with the city name, date, an icon representing the weather conditions, temperature, humidity, wind speed and UV index. The UV index is color coded to represent if the conditions are favorable (green), moderate (yellow), or severe (red). Below the current weather conditions is where a 5 day forecast is displayed showing date, weather icon, temperature, and humidity. When a city from the search history is selected, the user is once again presented with the current and future weather conditions for that city. 
+
+https://meganlcoppins.github.io/Weather-Dashboard/

@@ -9,28 +9,33 @@ header {
 #searchBox {
     width: 300px;
 }
+
 #currentWeather {
     border: 1px solid black;
     margin-top: 10px;
     padding: 10px;
-    /* display: none; */
 }
+
 #forecastDiv {
     padding: 12px;
-}
+} 
 
 .noBorder {
     border: transparent;
     margin-right: 8px;
 }
+
 .hide {
     display: none;
 }
+
 .forecast {
     background-color: blue;
     color: white;
-    margin-right: 6px;
+    font-size: 14px;
+    margin-right: 3px;
 }
+
 #searchCity {
     padding-top: 10px;
 }
