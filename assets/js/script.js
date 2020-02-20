@@ -76,7 +76,7 @@ $(document).ready(function() {
       });
       // third AJAX call to get forecast information
       var forecastQueryUrl =
-        "http://api.openweathermap.org/data/2.5/forecast?q=" +
+        "https://api.openweathermap.org/data/2.5/forecast?q=" +
         search +
         "&appid=" +
         apiKey +
