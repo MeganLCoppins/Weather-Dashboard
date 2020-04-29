@@ -51,13 +51,14 @@
                 <p>Wind: </p>
                 <p>UV-Index: </p>
               </div>
-  <!-- THIS IS WHERE THE HIDE CLASS GOES -->
-              <div class="hide">
-                <h2 id="city">City Name</h2>
-                <p id="temp">Temp</p>
-                <p id="humidity">Humidity</p>
-                <p id="wind">Wind</p>
-                <p id="uv">UV-Index</p>
+          <!-- hidden div until user searches or selects a city -->
+              <div class="hide cityDiv">
+                <h4 id="date"></h4>
+                <h2 id="city">City Name:</h2>
+                <p id="temp">Temperature:</p>
+                <p id="humidity">Humidity:</p>
+                <p id="wind">Wind:</p>
+                <p id="uv">UV Index: </p>
                 <!-- 5 Day Forecast Displayed -->
                 <div className="hideForecast">
                 <!-- <h3>5-Day Forecast:</h3> -->
@@ -65,41 +66,41 @@
                     <div class="card noBorder">
                       <div class="card-body forecast">
                         <h6 class="card-title" id="Day1"></h6>
-                            <p class="card-text"><img id="forecastSymbol1"></p>
-                            <p class="card-text" id="forecastTemp1"></p>
-                            <p class="card-text" id="forecastHumidity1"></p>
+                            <h6 class="card-text"><img id="forecastSymbol1"></h6>
+                            <h5 class="card-text" id="forecastTemp1"></h5>
+                            <h6 class="card-text" id="forecastHumidity1"></h6>
                       </div>
                     </div>
                     <div class="card noBorder">
                       <div class="card-body forecast">
                         <h6 class="card-title" id="Day2"></h6>
-                        <p class="card-text"><img id="forecastSymbol2"></p>
-                        <p class="card-text" id="forecastTemp2"></p>
-                        <p class="card-text" id="forecastHumidity2"></p>
+                        <h6 class="card-text"><img id="forecastSymbol2"></h6>
+                        <h5 class="card-text" id="forecastTemp2"></h5>
+                        <h6 class="card-text" id="forecastHumidity2"></h6>
                       </div>
                     </div>
                     <div class="card noBorder">
                       <div class="card-body forecast">
                         <h6 class="card-title" id="Day3"></h6>
-                        <p class="card-text"><img id="forecastSymbol3"></p>
-                        <p class="card-text" id="forecastTemp3"></p>
-                        <p class="card-text" id="forecastHumidity3"></p>
+                        <h6 class="card-text"><img id="forecastSymbol3"></h6>
+                        <h5 class="card-text" id="forecastTemp3"></h5>
+                        <h6 class="card-text" id="forecastHumidity3"></h6>
                       </div>
                     </div>
                     <div class="card noBorder">
                       <div class="card-body forecast">
                         <h6 class="card-title" id="Day4"></h6>
-                        <p class="card-text"><img id="forecastSymbol4"></p>
-                        <p class="card-text" id="forecastTemp4"></p>
-                        <p class="card-text" id="forecastHumidity4"></p>
+                        <h6 class="card-text"><img id="forecastSymbol4"></h6>
+                        <h5 class="card-text" id="forecastTemp4"></h5>
+                        <h6 class="card-text" id="forecastHumidity4"></h6>
                       </div>
                     </div>
                     <div class="card noBorder">
                       <div class="card-body forecast">
                         <h6 class="card-title" id="Day5"></h6>
-                        <p class="card-text"><img id="forecastSymbol5"></p>
-                        <p class="card-text" id="forecastTemp5"></p>
-                        <p class="card-text" id="forecastHumidity5"></p>
+                        <h6 class="card-text"><img id="forecastSymbol5"></h6>
+                        <h5 class="card-text" id="forecastTemp5"></h5>
+                        <h6 class="card-text" id="forecastHumidity5"></h6>
                       </div>
                     </div>
                   </div>

@@ -5,6 +5,7 @@ $(document).ready(function() {
   var $wind = $("#wind");
   var $uv = $("#uv");
   var $city = $("#city");
+  var $date = $("#date");
   var $search = $("#search");
   var $searchBtn = $("#searchBtn");
 
@@ -42,8 +43,9 @@ $(document).ready(function() {
       method: "GET"
     }).then(function(response) {
       var dateString = moment.unix(response.dt).format("MM/DD/YYYY");
-      $city.text(response.name + " (" + dateString + ")");
-      $temp.text("Temperature: " + response.main.temp + " °F");
+      $date.text( dateString );
+      $city.text( response.name );
+      $temp.text( response.main.temp + " °F");
       $humidity.text("Humidity: " + response.main.humidity + " %");
       $wind.text("Wind Speed: " + response.wind.speed + " MPH");
       weatherIconUrl =
@@ -64,17 +66,21 @@ $(document).ready(function() {
         url: uvIndexQueryUrl,
         method: "GET"
       }).then(function(returned) {
-        $uv.text("UV Index: " + returned.value);
+        let button = $("<button>")
+        button.text(returned.value);
+        // $uv.text("UV Index: " + returned.value);
 
         if (returned.value <= 2) {
-          $uv.addClass("favorable");
+          button.addClass("favorable");
         }
         if (returned.value > 2 && returned.value <= 7) {
-          $uv.addClass("moderate");
+          button.addClass("moderate");
         }
         if (returned.value > 7) {
-          $uv.addClass("severe");
+          button.addClass("severe");
         }
+
+        $uv.append(button);
       });
       // third AJAX call to get forecast information
       var forecastQueryUrl =
@@ -97,7 +103,7 @@ $(document).ready(function() {
               "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
             );
             $("#forecastTemp" + day).text( data.main.temp + "°F");
-            $("#forecastHumidity" + day).text(
+            $("#forecastHumidity" + day).text( "Humidity:" +
                data.main.humidity + "%"
             );
             day++;
@@ -139,7 +145,7 @@ $(document).ready(function() {
       div.append(button);
     }
   }
-
+// on click event to show cities information
   $("#listOfCities").on("click", ".city", function(e) {
     e.preventDefault();
     var search = $(this).text();
