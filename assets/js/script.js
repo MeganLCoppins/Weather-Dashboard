@@ -22,6 +22,8 @@ $(document).ready(function() {
     event.preventDefault();
     var search = $search.val();
     $(".hide").removeClass("hide");
+    $(".show").addClass("hide");
+    $(".forecastHide").removeClass("forecastHide");
 
     storeSearch(search);
     getWeather(search);
@@ -94,9 +96,9 @@ $(document).ready(function() {
               "src",
               "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
             );
-            $("#forecastTemp" + day).text("Temp: " + data.main.temp + "°F");
+            $("#forecastTemp" + day).text( data.main.temp + "°F");
             $("#forecastHumidity" + day).text(
-              "Humidity: " + data.main.humidity + "%"
+               data.main.humidity + "%"
             );
             day++;
           }
@@ -142,6 +144,8 @@ $(document).ready(function() {
     e.preventDefault();
     var search = $(this).text();
     $(".hide").removeClass("hide");
+    $(".show").addClass("hide");
+    $(".forecastHide").removeClass("forecastHide");
     getWeather(search);
   });
 });
