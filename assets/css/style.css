@@ -136,6 +136,56 @@ h5 {
     border: transparent;
     color: rgb(240, 79, 79);
 }
+@media screen and (max-width: 414px){
+    #searchBox{
+        width: 280px;
+    }
+    .city {
+        width: 280px;
+    }
+    #forecastDiv{
+        display: inline-block;
+    }
+    #currentWeather {
+        padding-left: 0;
+    }
+    #city {
+        text-align: left;
+    }
+    #temp {
+        text-align: left;
+        margin-left: 0;
+    }
+    p {
+        text-align: left;
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 1024px){
+    #forecastDiv {
+        display: inline-block;
+    }
+    .city {
+        width: 280px;
+    }
+    #searchBox {
+        width: 280px;
+    }
+}
+/* @media screen and (max-width: 320px){
+    #searchBox{
+        width: 300px;
+    }
+    .city {
+        width: 300px;
+    }
+    p {
+        margin-left: 5%;
+    }
+    #temp {
+        margin-left: 5%;
+    }
+}
 @media screen and (max-width: 660px){
     #currentWeather {
         padding-left: 0;
@@ -156,17 +206,19 @@ h5 {
         width: 340px;
     }
 }
-@media screen and (max-width: 320px){
-    #searchBox{
-        width: 300px;
+@media screen and (max-width: 768px){
+    #forecastDiv {
+        display: inline-block;
     }
-    .city {
-        width: 300px;
-    }
-    p {
-        margin-left: 5%;
-    }
-    #temp {
-        margin-left: 5%;
+    #city {
+        margin-left: 70px;
     }
 }
+@media screen and (max-width: 1024px){
+    #forecastDiv {
+        display: inline-block;
+    }
+    #city {
+        margin-left: 40px;
+    }
+} */

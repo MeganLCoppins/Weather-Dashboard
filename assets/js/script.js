@@ -4,6 +4,7 @@ $(document).ready(function() {
   var $humidity = $("#humidity");
   var $wind = $("#wind");
   var $uv = $("#uv");
+  var $uvBtn =$("#uvBtn");
   var $city = $("#city");
   var $date = $("#date");
   var $search = $("#search");
@@ -68,18 +69,19 @@ $(document).ready(function() {
       }).then(function(returned) {
         let button = $("<button>")
         button.text(returned.value);
+        $uv.text("UV Index: ");
+        
         // $uv.text("UV Index: " + returned.value);
 
         if (returned.value <= 2) {
           button.addClass("favorable");
         }
-        if (returned.value > 2 && returned.value <= 7) {
+        else if (returned.value > 2 && returned.value <= 7) {
           button.addClass("moderate");
         }
-        if (returned.value > 7) {
+        else if (returned.value > 7) {
           button.addClass("severe");
         }
-
         $uv.append(button);
       });
       // third AJAX call to get forecast information
