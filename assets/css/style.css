@@ -78,7 +78,8 @@ h1 {
 
 h2 {
     font-size: 60px;
-    text-align: center;
+    text-align: left;
+    margin-left: 29%;
 }
 #city img {
     width: 12%;
@@ -107,8 +108,8 @@ h5 {
     margin-top: 10%;
 }
 #searchCity {
-    margin-bottom: 10px;
-    padding-bottom: 60px;
+    height: 29%;
+    overflow: auto;
     padding-right: 20px;
     text-align: center;
     color: rgb(22, 22, 46);
@@ -140,6 +141,10 @@ h5 {
     #searchBox{
         width: 280px;
     }
+    #searchCity {
+        height: 40%;
+        padding-right: 0;
+    }
     .city {
         width: 280px;
     }
@@ -160,65 +165,28 @@ h5 {
         text-align: left;
         margin-left: 0;
     }
-}
-@media screen and (max-width: 1024px){
-    #forecastDiv {
-        display: inline-block;
-    }
-    .city {
-        width: 280px;
-    }
-    #searchBox {
-        width: 280px;
-    }
-}
-/* @media screen and (max-width: 320px){
-    #searchBox{
-        width: 300px;
-    }
-    .city {
-        width: 300px;
-    }
-    p {
-        margin-left: 5%;
-    }
-    #temp {
-        margin-left: 5%;
-    }
-}
-@media screen and (max-width: 660px){
-    #currentWeather {
-        padding-left: 0;
-    }
-    #temp {
-        margin-left: 10%;
-    }
-    p {
-        margin-left: 10%;
-    }
-    #forecastDiv{
-        display: inline-block;
-    }
-    #city img{
-        width: 20%;
-    }
-    #searchBox {
-        width: 340px;
-    }
-}
-@media screen and (max-width: 768px){
-    #forecastDiv {
-        display: inline-block;
-    }
-    #city {
-        margin-left: 70px;
+    h2 {
+        text-align: left;
+        margin-left: 0;
     }
 }
 @media screen and (max-width: 1024px){
     #forecastDiv {
         display: inline-block;
     }
-    #city {
-        margin-left: 40px;
+    .city {
+        width: 200px;
     }
-} */
+    #searchBox {
+        width: 200px;
+    }
+    h2 {
+        margin-left: 0;
+    }
+    p {
+        margin-left: 0;
+    }
+    #temp {
+        margin-left: 0;
+    }
+}
