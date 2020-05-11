@@ -13,7 +13,7 @@ I created a weather dashboard application for users to be able to look up both t
 
 ## Usage
 
-To use the Weather Dashboard application go to the [deployed link](#Deployed-Link).
+To use the Weather Dashboard application go to the [deployed link](https://meganlcoppins.github.io/Weather-Dashboard/).
 
 ## Demonstration
 
@@ -23,6 +23,7 @@ To use the Weather Dashboard application go to the [deployed link](#Deployed-Lin
 
 * HTML
 * CSS
+* Bootstrap
 * JavaScript
 * Local Storage
 * Third-Party API - OpenWeather API
