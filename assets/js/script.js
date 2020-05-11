@@ -38,7 +38,7 @@ $(document).ready(function(){
       $("#humidity").text("Humidity: " + response.main.humidity + " %");
       $("#wind").text("Wind Speed: " + response.wind.speed + " MPH");
       weatherIconUrl =
-        "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+        "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
       weatherImage = $("<img>").attr("src", weatherIconUrl);
       $("#city").append(weatherImage);
       const latitude = response.coord.lat;
@@ -86,7 +86,7 @@ $(document).ready(function(){
             $("#Day" + day).text(moment.unix(data.dt).format("MM/DD/YYYY"));
             $("#forecastSymbol" + day).attr(
               "src",
-              "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
+              "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
             );
             $("#forecastTemp" + day).text( data.main.temp + "°F");
             $("#forecastHumidity" + day).text( "Humidity:" +
