@@ -1,17 +1,28 @@
-$(document).ready(function(){
-    let searchArray = localStorage.getItem("localSearch");
-    if (searchArray) {
-      searchArray = JSON.parse(searchArray);
-    } else {
-      searchArray = [];
-    }
-  
-    getSearch();
+$(document).ready(function() {
+  var apiKey = "ec769fc248d61a50ac4a8124e2ff8391";
+  var $temp = $("#temp");
+  var $humidity = $("#humidity");
+  var $wind = $("#wind");
+  var $uv = $("#uv");
+  var $uvBtn =$("#uvBtn");
+  var $city = $("#city");
+  var $date = $("#date");
+  var $search = $("#search");
+  var $searchBtn = $("#searchBtn");
 
-// on click event to grab search input & display hidden div
-  $("#searchBtn").on("click", function(event) {
+  var searchArray = localStorage.getItem("localSearch");
+  if (searchArray) {
+    searchArray = JSON.parse(searchArray);
+  } else {
+    searchArray = [];
+  }
+
+  getSearch();
+
+  // on click event to grab search input & display hidden div
+  $searchBtn.on("click", function(event) {
     event.preventDefault();
-    let search = $("#search").val();
+    var search = $search.val();
     $(".hide").removeClass("hide");
     $(".show").addClass("hide");
     $(".forecastHide").removeClass("forecastHide");
@@ -22,29 +33,31 @@ $(document).ready(function(){
 
   // function built to create AJAX call from search form input
   function getWeather(search) {
-    const queryURL =
+    var queryURL =
       "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=" +
       search +
-      "&appid=ec769fc248d61a50ac4a8124e2ff8391";
+      "&appid=" +
+      apiKey;
     // create AJAX call to get current weather information
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      const dateString = moment.unix(response.dt).format("MM/DD/YYYY");
-      $("#date").text( dateString );
-      $("#city").text( response.name );
-      $("#temp").text( response.main.temp + " °F");
-      $("#humidity").text("Humidity: " + response.main.humidity + " %");
-      $("#wind").text("Wind Speed: " + response.wind.speed + " MPH");
+      var dateString = moment.unix(response.dt).format("MM/DD/YYYY");
+      $date.text( dateString );
+      $city.text( response.name );
+      $temp.text( response.main.temp + " °F");
+      $humidity.text("Humidity: " + response.main.humidity + " %");
+      $wind.text("Wind Speed: " + response.wind.speed + " MPH");
       weatherIconUrl =
         "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
       weatherImage = $("<img>").attr("src", weatherIconUrl);
-      $("#city").append(weatherImage);
-      const latitude = response.coord.lat;
-      const longitude = response.coord.lon;
-      const uvIndexQueryUrl =
-        "https://api.openweathermap.org/data/2.5/uvi?&appid=ec769fc248d61a50ac4a8124e2ff8391" +
+      $city.append(weatherImage);
+      var latitude = response.coord.lat;
+      var longitude = response.coord.lon;
+      var uvIndexQueryUrl =
+        "https://api.openweathermap.org/data/2.5/uvi?&appid=" +
+        apiKey +
         "&lat=" +
         latitude +
         "&lon=" +
@@ -54,10 +67,12 @@ $(document).ready(function(){
         url: uvIndexQueryUrl,
         method: "GET"
       }).then(function(returned) {
-        const button = $("<button>")
+        let button = $("<button>")
         button.text(returned.value);
-        $("#uv").text("UV Index: ");
+        $uv.text("UV Index: ");
         
+        // $uv.text("UV Index: " + returned.value);
+
         if (returned.value <= 2) {
           button.addClass("favorable");
         }
@@ -67,20 +82,21 @@ $(document).ready(function(){
         else if (returned.value > 7) {
           button.addClass("severe");
         }
-        $("#uv").append(button);
+        $uv.append(button);
       });
       // third AJAX call to get forecast information
-      const forecastQueryUrl =
+      var forecastQueryUrl =
         "https://api.openweathermap.org/data/2.5/forecast?q=" +
         search +
-        "&appid=ec769fc248d61a50ac4a8124e2ff8391" +
+        "&appid=" +
+        apiKey +
         "&units=imperial";
 
       $.ajax({
         url: forecastQueryUrl,
         method: "GET"
       }).then(function(result) {
-        let day = 1;
+        var day = 1;
         result.list.forEach(function(data) {
           if (data.dt_txt.includes("15:00")) {
             $("#Day" + day).text(moment.unix(data.dt).format("MM/DD/YYYY"));
@@ -110,7 +126,7 @@ $(document).ready(function(){
     // set array to local storage
     localStorage.setItem("localSearch", JSON.stringify(searchArray));
     // clear input from search form
-    $("#search").val("");
+    $search.val("");
 
     getSearch();
   }
@@ -121,8 +137,8 @@ $(document).ready(function(){
     $("#listOfCities").empty();
     // run for loop to dynamically add div and button based on searchArray
     for (var i = 0; i < searchArray.length; i++) {
-      const div = $("<div>");
-      const button = $("<button>");
+      var div = $("<div>");
+      var button = $("<button>");
       button.attr("class", "btn-lg btn-block city").text(searchArray[i]);
       button.attr("id", searchArray[i]);
 
@@ -131,10 +147,10 @@ $(document).ready(function(){
       div.append(button);
     }
   }
-  // on click event to show cities information
+// on click event to show cities information
   $("#listOfCities").on("click", ".city", function(e) {
     e.preventDefault();
-    const search = $(this).text();
+    var search = $(this).text();
     $(".hide").removeClass("hide");
     $(".show").addClass("hide");
     $(".forecastHide").removeClass("forecastHide");
