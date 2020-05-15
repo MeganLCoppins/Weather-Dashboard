@@ -89,7 +89,7 @@ $(document).ready(function(){
               "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
             );
             $("#forecastTemp" + day).text( data.main.temp + "°F");
-            $("#forecastHumidity" + day).text( "Humidity:" +
+            $("#forecastHumidity" + day).text( "Humidity: " +
                data.main.humidity + "%"
             );
             day++;
