@@ -42,6 +42,10 @@ h1 {
     border: transparent;
     /* border: 2px solid white; */
 }
+#clear {
+    margin-bottom: 2%;
+    background-color: rgb(22, 22, 46);
+}
 .cityDiv {
     margin-bottom: 10%;
 }
@@ -145,7 +149,7 @@ h5 {
         width: 280px;
     }
     #searchCity {
-        height: 54%;
+        height: 57%;
         padding-right: 0;
     }
     .city {

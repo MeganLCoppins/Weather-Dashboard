@@ -120,6 +120,7 @@ $(document).ready(function(){
     // clear out button area
     $("#listOfCities").empty();
     // run for loop to dynamically add div and button based on searchArray
+
     for (var i = 0; i < searchArray.length; i++) {
       const div = $("<div>");
       const button = $("<button>");
@@ -141,4 +142,14 @@ $(document).ready(function(){
     $(".forecastHide").removeClass("forecastHide");
     getWeather(search);
   });
+
+  $("#clear").on("click", function(e){
+    e.preventDefault();
+    // set to empty array
+    searchArray = [];
+    // clear button area
+    $("#listOfCities").empty();
+    localStorage.clear();
+  })
+
 });
