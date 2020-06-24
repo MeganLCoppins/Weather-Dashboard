@@ -123,9 +123,10 @@ $(document).ready(function(){
     for (var i = 0; i < searchArray.length; i++) {
       const div = $("<div>");
       const button = $("<button>");
+
       button.attr("class", "btn-lg btn-block city").text(searchArray[i]);
       button.attr("id", searchArray[i]);
-
+      
       // prepending div to DOM and appending button to div
       $("#listOfCities").prepend(div);
       div.append(button);
