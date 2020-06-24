@@ -1,15 +1,15 @@
-$(document).ready(function(){
-    let searchArray = localStorage.getItem("localSearch");
-    if (searchArray) {
-      searchArray = JSON.parse(searchArray);
-    } else {
-      searchArray = [];
-    }
-  
-    getSearch();
+$(document).ready(function () {
+  let searchArray = localStorage.getItem("localSearch");
+  if (searchArray) {
+    searchArray = JSON.parse(searchArray);
+  } else {
+    searchArray = [];
+  }
 
-// on click event to grab search input & display hidden div
-  $("#searchBtn").on("click", function(event) {
+  getSearch();
+
+  // on click event to grab search input & display hidden div
+  $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     let search = $("#search").val();
     $(".hide").removeClass("hide");
@@ -29,12 +29,12 @@ $(document).ready(function(){
     // create AJAX call to get current weather information
     $.ajax({
       url: queryURL,
-      method: "GET"
-    }).then(function(response) {
+      method: "GET",
+    }).then(function (response) {
       const dateString = moment.unix(response.dt).format("MM/DD/YYYY");
-      $("#date").text( dateString );
-      $("#city").text( response.name );
-      $("#temp").text( response.main.temp + " °F");
+      $("#date").text(dateString);
+      $("#city").text(response.name);
+      $("#temp").text(response.main.temp + " °F");
       $("#humidity").text("Humidity: " + response.main.humidity + " %");
       $("#wind").text("Wind Speed: " + response.wind.speed + " MPH");
       weatherIconUrl =
@@ -52,19 +52,17 @@ $(document).ready(function(){
       // create another AJAX call to get UV Index information
       $.ajax({
         url: uvIndexQueryUrl,
-        method: "GET"
-      }).then(function(returned) {
-        const button = $("<button>")
+        method: "GET",
+      }).then(function (returned) {
+        const button = $("<button>");
         button.text(returned.value);
         $("#uv").text("UV Index: ");
-        
+
         if (returned.value <= 2) {
           button.addClass("favorable");
-        }
-        else if (returned.value > 2 && returned.value <= 7) {
+        } else if (returned.value > 2 && returned.value <= 7) {
           button.addClass("moderate");
-        }
-        else if (returned.value > 7) {
+        } else if (returned.value > 7) {
           button.addClass("severe");
         }
         $("#uv").append(button);
@@ -78,19 +76,21 @@ $(document).ready(function(){
 
       $.ajax({
         url: forecastQueryUrl,
-        method: "GET"
-      }).then(function(result) {
+        method: "GET",
+      }).then(function (result) {
         let day = 1;
-        result.list.forEach(function(data) {
+        result.list.forEach(function (data) {
           if (data.dt_txt.includes("15:00")) {
             $("#Day" + day).text(moment.unix(data.dt).format("MM/DD/YYYY"));
             $("#forecastSymbol" + day).attr(
               "src",
-              "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
+              "https://openweathermap.org/img/w/" +
+                data.weather[0].icon +
+                ".png"
             );
-            $("#forecastTemp" + day).text( data.main.temp + "°F");
-            $("#forecastHumidity" + day).text( "Humidity: " +
-               data.main.humidity + "%"
+            $("#forecastTemp" + day).text(data.main.temp + "°F");
+            $("#forecastHumidity" + day).text(
+              "Humidity: " + data.main.humidity + "%"
             );
             day++;
           }
@@ -120,21 +120,20 @@ $(document).ready(function(){
     // clear out button area
     $("#listOfCities").empty();
     // run for loop to dynamically add div and button based on searchArray
-
     for (var i = 0; i < searchArray.length; i++) {
       const div = $("<div>");
       const button = $("<button>");
 
       button.attr("class", "btn-lg btn-block city").text(searchArray[i]);
       button.attr("id", searchArray[i]);
-      
+
       // prepending div to DOM and appending button to div
       $("#listOfCities").prepend(div);
       div.append(button);
     }
   }
   // on click event to show cities information
-  $("#listOfCities").on("click", ".city", function(e) {
+  $("#listOfCities").on("click", ".city", function (e) {
     e.preventDefault();
     const search = $(this).text();
     $(".hide").removeClass("hide");
@@ -142,14 +141,14 @@ $(document).ready(function(){
     $(".forecastHide").removeClass("forecastHide");
     getWeather(search);
   });
-
-  $("#clear").on("click", function(e){
+  // on click event to clear search history
+  $("#clear").on("click", function (e) {
     e.preventDefault();
     // set to empty array
     searchArray = [];
     // clear button area
     $("#listOfCities").empty();
+    // clear local storage
     localStorage.clear();
-  })
-
+  });
 });

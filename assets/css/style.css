@@ -1,202 +1,187 @@
 body {
-    /* background-color: rgb(146, 197, 245); */
-    background-image: url("../images/background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-bottom: 40%;
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 40%;
 }
 header {
-    color: aliceblue;
-    background-color: rgb(22, 22, 46);
-    text-align: left;
-    padding-left: 5px;
-    padding-top: 8px;
+  color: aliceblue;
+  background-color: rgb(22, 22, 46);
+  text-align: left;
+  padding-left: 5px;
+  padding-top: 8px;
 }
 #header {
-    width: 100%;
+  width: 100%;
 }
 h1 {
-    font-size: 50px;
-    padding-bottom: 5px;
+  font-size: 50px;
+  padding-bottom: 5px;
 }
 #searchBox {
-    width: 350px;
-    /* margin-left: 40%; */
-    margin-top: 25%;
-    /* margin-bottom: 1%; */
+  width: 350px;
+  margin-top: 25%;
 }
 #searchBtn {
-    background-color: rgb(201, 230, 255);
-    border-color: rgb(202, 228, 250);
+  background-color: rgb(201, 230, 255);
+  border-color: rgb(202, 228, 250);
 }
 #listOfCities {
-    width: 50%;
-    height: 100%;
+  width: 50%;
+  height: 100%;
 }
-.city{
-    width: 310px;
-    margin-top: 4%;
-    color: white;
-    background-color: rgba(144, 120, 196, 0.74);
-    /* background-color: rgb(154, 129, 209); */
-    border: transparent;
-    /* border: 2px solid white; */
+.city {
+  width: 310px;
+  margin-top: 4%;
+  color: white;
+  background-color: rgba(144, 120, 196, 0.74);
+  border: transparent;
 }
 #clear {
-    margin-bottom: 2%;
-    background-color: rgb(22, 22, 46);
+  margin-bottom: 2%;
+  background-color: rgb(22, 22, 46);
 }
 .cityDiv {
-    margin-bottom: 10%;
+  margin-bottom: 10%;
 }
 #currentWeather {
-    margin-top: 8%;
-    padding-left: 40px;
-    text-align: center;
+  margin-top: 8%;
+  padding-left: 40px;
+  text-align: center;
 }
-
-/* #forecastDiv {
-    padding: 35%;
-
-}  */
-
 .noBorder {
-    border: transparent;
-    margin-right: 5px;
-    padding-bottom: 5%;
-    background-color: rgba(240, 248, 255, 0.666);
+  border: transparent;
+  margin-right: 5px;
+  padding-bottom: 5%;
+  background-color: rgba(240, 248, 255, 0.666);
 }
-
 .hide {
-    display: none;
+  display: none;
 }
 .forecastHide {
-    display: none;
+  display: none;
 }
 
 .forecast {
-    color: purple;
-    background-color: rgba(240, 248, 255, 0.228);
-    width: 135px;
-    padding: 0;
-    font-size: 12px;
+  color: purple;
+  background-color: rgba(240, 248, 255, 0.228);
+  width: 135px;
+  padding: 0;
+  font-size: 12px;
 }
 
 h2 {
-    font-size: 60px;
-    text-align: left;
-    margin-left: 29%;
+  font-size: 60px;
+  text-align: left;
+  margin-left: 29%;
 }
 #city img {
-    width: 12%;
+  width: 12%;
 }
 #date {
-    text-align: left;
-    margin-left: 30%;
-    font-size: 30px;
+  text-align: left;
+  margin-left: 30%;
+  font-size: 30px;
 }
 #temp {
-    font-size: 40px;
-    text-align: left;
-    margin-left: 30%;
+  font-size: 40px;
+  text-align: left;
+  margin-left: 30%;
 }
-p{
-    font-size: 30px;
-    text-align: left;
-    margin-left: 30%;
+p {
+  font-size: 30px;
+  text-align: left;
+  margin-left: 30%;
 }
-#forecastHumidity{
-    font-size: 12px;
+#forecastHumidity {
+  font-size: 12px;
 }
-.card-title{
-    padding-top: 10%;
+.card-title {
+  padding-top: 10%;
 }
 h5 {
-    margin-top: 10%;
+  margin-top: 10%;
 }
 #searchCity {
-    height: 74%;
-    overflow: auto;
-    padding-right: 20px;
-    text-align: center;
-    color: rgb(22, 22, 46);
+  height: 74%;
+  overflow: auto;
+  padding-right: 20px;
+  text-align: center;
+  color: rgb(22, 22, 46);
 }
 #uv {
-    padding-bottom: 3%;
+  padding-bottom: 3%;
 }
 .favorable {
-    /* border: 4px solid rgb(174, 231, 88); */
-    border: transparent;
-    background-color: transparent;
-    color: rgb(174, 231, 88);
+  border: transparent;
+  background-color: transparent;
+  color: rgb(174, 231, 88);
 }
 
 .moderate {
-    /* border: 4px solid rgb(250, 250, 111); */
-    background-color: transparent;
-    border: transparent;
-    color: rgb(250, 250, 111);
+  background-color: transparent;
+  border: transparent;
+  color: rgb(250, 250, 111);
 }
 
 .severe {
-    /* border: 4px solid rgb(240, 79, 79); */
-    background-color: transparent;
-    border: transparent;
-    color: rgb(240, 79, 79);
+  background-color: transparent;
+  border: transparent;
+  color: rgb(240, 79, 79);
 }
-@media screen and (max-width: 414px){
-    #searchBox{
-        width: 280px;
-    }
-    #searchCity {
-        height: 57%;
-        padding-right: 0;
-    }
-    .city {
-        width: 280px;
-    }
-    #forecastDiv{
-        display: inline-block;
-    }
-    #currentWeather {
-        padding-left: 0;
-    }
-    #city {
-        text-align: left;
-    }
-    #temp {
-        text-align: left;
-        margin-left: 0;
-    }
-    p {
-        text-align: left;
-        margin-left: 0;
-    }
-    h2 {
-        text-align: left;
-        margin-left: 0;
-    }
+@media screen and (max-width: 414px) {
+  #searchBox {
+    width: 280px;
+  }
+  #searchCity {
+    height: 57%;
+    padding-right: 0;
+  }
+  .city {
+    width: 280px;
+  }
+  #forecastDiv {
+    display: inline-block;
+  }
+  #currentWeather {
+    padding-left: 0;
+  }
+  #city {
+    text-align: left;
+  }
+  #temp {
+    text-align: left;
+    margin-left: 0;
+  }
+  p {
+    text-align: left;
+    margin-left: 0;
+  }
+  h2 {
+    text-align: left;
+    margin-left: 0;
+  }
 }
-@media screen and (max-width: 1024px){
-    #forecastDiv {
-        display: inline-block;
-    }
-    .city {
-        width: 200px;
-    }
-    #searchBox {
-        width: 200px;
-    }
-    h2 {
-        margin-left: 0;
-    }
-    p {
-        margin-left: 0;
-    }
-    #temp {
-        margin-left: 0;
-    }
-    #date {
-        margin-left: 0;
-    }
+@media screen and (max-width: 1024px) {
+  #forecastDiv {
+    display: inline-block;
+  }
+  .city {
+    width: 200px;
+  }
+  #searchBox {
+    width: 200px;
+  }
+  h2 {
+    margin-left: 0;
+  }
+  p {
+    margin-left: 0;
+  }
+  #temp {
+    margin-left: 0;
+  }
+  #date {
+    margin-left: 0;
+  }
 }
